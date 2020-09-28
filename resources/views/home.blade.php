@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <app></app>
+        <app github-token="{{ $token }}"></app>
     </div>
 @endsection
