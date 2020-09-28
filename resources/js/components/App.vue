@@ -6,15 +6,18 @@
         <template v-else>
             <github-token-form></github-token-form>
         </template>
+        <starred-repositories-list :github-token="githubToken"></starred-repositories-list>
     </div>
 </template>
 
 <script>
+import StarredRepositoriesList from './StarredRepositoriesList.vue';
 import GithubTokenForm from './GithubTokenForm.vue';
 
 export default {
     components: {
-        GithubTokenForm
+        GithubTokenForm,
+        StarredRepositoriesList
     },
     props: {
         githubToken: {
