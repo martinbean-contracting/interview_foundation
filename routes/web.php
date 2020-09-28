@@ -7,4 +7,4 @@ Auth::routes();
 
 Route::view('/', 'welcome')->middleware('guest');
 
-Route::view('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::view('/home', 'home')->name('home')->middleware('auth');

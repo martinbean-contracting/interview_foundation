@@ -1,8 +1,14 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
-// Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
+
+// Spinner looks slightly misaligned on Chrome on macOS
+.btn {
+    .spinner-border {
+        position: relative;
+        top: -0.0625rem; // 1px
+
+        &:not(:last-child) {
+            margin-right: .25rem;
+        }
+    }
+}
