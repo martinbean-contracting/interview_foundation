@@ -7,4 +7,8 @@ Auth::routes();
 
 Route::view('/', 'welcome')->middleware('guest');
 
-Route::view('/home', 'home')->name('home')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::view('/home', 'home')->name('home');
+
+    Route::put('github-token', 'PersistGithubTokenController');
+});

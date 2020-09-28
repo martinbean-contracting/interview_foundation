@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -11,27 +10,26 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * {@inheritDoc}
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'github_token',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * {@inheritDoc}
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
+        'github_token',
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * {@inheritDoc}
      */
     protected $casts = [
         'email_verified_at' => 'datetime',

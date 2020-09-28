@@ -146,6 +146,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'github_token' => 'GitHub personal access token',
+    ],
 
 ];

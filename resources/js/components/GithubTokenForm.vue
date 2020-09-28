@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import axios from '../plugins/axios';
 import Form from '../src/form';
 
 export default {
@@ -56,7 +57,24 @@ export default {
         onSubmit() {
             this.form.startProcessing();
 
-            // TODO: Actually persist GitHub personal access token
+            axios
+                .put('/github-token', this.form.data)
+                .then((response) => {
+                    this.form.finishProcessing();
+
+                    this.$emit('token-updated', this.form.data.github_token);
+                })
+                .catch((error) => {
+                    if (error.response.data.errors) {
+                        this.form.setErrors(error.response.data.errors);
+                    } else {
+                        this.form.setErrors({
+                            'form': [
+                                'An error occurred. Please try again later.'
+                            ]
+                        });
+                    }
+                });
         }
     }
 }
